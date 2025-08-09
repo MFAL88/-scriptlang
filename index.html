@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptLang - Programmation pour Écrivains</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            color: #34495e;
+        }
+        
+        .demo-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .code-input, .code-output {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+        }
+        
+        .code-input textarea {
+            width: 100%;
+            height: 250px;
+            background: transparent;
+            border: none;
+            color: #ecf0f1;
+            font-family: inherit;
+            font-size: inherit;
+            resize: none;
+            outline: none;
+        }
+        
+        .code-output {
+            white-space: pre-wrap;
+            min-height: 250px;
+            overflow-y: auto;
+        }
+        
+        .run-button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 15px 0;
+            transition: background 0.3s;
+        }
+        
+        .run-button:hover {
+            background: #219a52;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Monaco', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .keyword { color: #e74c3c; font-weight: bold; }
+        .string { color: #2ecc71; }
+        .number { color: #f39c12; }
+        .comment { color: #95a5a6; font-style: italic; }
+        
+        .github-link {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .github-button {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .github-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 ScriptLang</h1>
+            <div class="subtitle">Le langage de programmation qui parle aux écrivains</div>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <p>Enfin un langage de programmation conçu pour les créateurs de récits ! <br>
+                Transformez vos idées narratives en code avec une syntaxe intuitive et poétique.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>📝 Variables = Personnages</h3>
+                    <p>Créez et développez vos personnages comme dans une vraie histoire.</p>
+                    <div class="example">
+<span class="keyword">personnage</span> <span class="string">héros</span> = <span class="string">"Alice"</span><br>
+<span class="keyword">personnage</span> <span class="string">âge</span> = <span class="number">25</span><br>
+<span class="keyword">écrire</span> héros + <span class="string">" a "</span> + âge + <span class="string">" ans"</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📖 Fonctions = Chapitres</h3>
+                    <p>Organisez votre code en chapitres, comme un vrai livre.</p>
+                    <div class="example">
+<span class="keyword">chapitre</span> <span class="string">introduction</span>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">écrire</span> <span class="string">"Il était une fois..."</span><br>
+<span class="keyword">fin</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔄 Boucles = Répétitions</h3>
+                    <p>Utilisez les répétitions narratives pour créer des effets.</p>
+                    <div class="example">
+<span class="keyword">répéter</span> <span class="number">3</span> <span class="keyword">fois</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">écrire</span> <span class="string">"Toc, toc, toc..."</span><br>
+<span class="keyword">fin</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>❓ Conditions = Intrigues</h3>
+                    <p>Créez des embranchements narratifs selon les circonstances.</p>
+                    <div class="example">
+<span class="keyword">si</span> héros <span class="keyword">possède</span> <span class="string">"épée magique"</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">écrire</span> <span class="string">"Le héros triomphe !"</span><br>
+<span class="keyword">sinon</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">écrire</span> <span class="string">"La quête continue..."</span><br>
+<span class="keyword">fin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h2>🎭 Essayez ScriptLang maintenant !</h2>
+                <p>Écrivez votre première histoire programmée :</p>
+                
+                <div class="demo-grid">
+                    <div>
+                        <h4>Votre code ScriptLang :</h4>
+                        <div class="code-input">
+                            <textarea id="codeInput" placeholder="// Votre première histoire ScriptLang
+personnage héros = &quot;Alice&quot;
+personnage quête = &quot;sauver le royaume&quot;
+
+chapitre début():
+    écrire &quot;Notre histoire commence...&quot;
+    écrire héros + &quot; doit &quot; + quête
+    écrire &quot;L'aventure peut commencer !&quot;
+fin
+
+// Lancer l'histoire
+début()"></textarea>
+                        </div>
+                        <button class="run-button" onclick="runScriptLang()">▶️ Exécuter l'histoire</button>
+                    </div>
+                    
+                    <div>
+                        <h4>Résultat :</h4>
+                        <div class="code-output" id="output">Cliquez sur "Exécuter" pour voir votre histoire prendre vie !</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="github-link">
+                <a href="https://github.com/votre-username/scriptlang" class="github-button">
+                    ⭐ Voir sur GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function runScriptLang() {
+            const code = document.getElementById('codeInput').value;
+            const output = document.getElementById('output');
+            
+            try {
+                let result = '';
+                const lines = code.split('\n');
+                let variables = {};
+                let functions = {};
+                let insideFunction = false;
+                let currentFunction = '';
+                let functionCode = [];
+                
+                // Parse le code
+                for (let line of lines) {
+                    line = line.trim();
+                    
+                    if (line.startsWith('//') || line === '') continue;
+                    
+                    // Variables (personnages)
+                    if (line.startsWith('personnage ')) {
+                        const match = line.match(/personnage (\w+) = "([^"]+)"|personnage (\w+) = (\d+)/);
+                        if (match) {
+                            if (match[1] && match[2]) {
+                                variables[match[1]] = match[2];
+                            } else if (match[3] && match[4]) {
+                                variables[match[3]] = parseInt(match[4]);
+                            }
+                        }
+                    }
+                    
+                    // Début de chapitre
+                    else if (line.startsWith('chapitre ')) {
+                        insideFunction = true;
+                        const match = line.match(/chapitre (\w+)\(\):/);
+                        if (match) {
+                            currentFunction = match[1];
+                            functionCode = [];
+                        }
+                    }
+                    
+                    // Fin de chapitre
+                    else if (line === 'fin') {
+                        if (insideFunction) {
+                            functions[currentFunction] = functionCode.slice();
+                            insideFunction = false;
+                        }
+                    }
+                    
+                    // Code dans un chapitre
+                    else if (insideFunction) {
+                        functionCode.push(line);
+                    }
+                    
+                    // Appel de chapitre
+                    else if (line.endsWith('()')) {
+                        const funcName = line.slice(0, -2);
+                        if (functions[funcName]) {
+                            for (let funcLine of functions[funcName]) {
+                                result += executeCommand(funcLine, variables) + '\n';
+                            }
+                        }
+                    }
+                    
+                    // Commande directe
+                    else {
+                        result += executeCommand(line, variables) + '\n';
+                    }
+                }
+                
+                output.textContent = result || 'Histoire exécutée avec succès !';
+            } catch (error) {
+                output.textContent = 'Erreur dans votre histoire : ' + error.message;
+            }
+        }
+        
+        function executeCommand(line, variables) {
+            if (line.includes('écrire ')) {
+                const content = line.substring(line.indexOf('écrire ') + 7);
+                return evaluateExpression(content, variables);
+            }
+            return '';
+        }
+        
+        function evaluateExpression(expr, variables) {
+            for (let [name, value] of Object.entries(variables)) {
+                const regex = new RegExp('\\b' + name + '\\b', 'g');
+                expr = expr.replace(regex, JSON.stringify(value));
+            }
+            
+            try {
+                return eval(expr);
+            } catch {
+                return expr;
+            }
+        }
+        
+        // Exécuter l'exemple au chargement
+        window.onload = function() {
+            runScriptLang();
+        };
+    </script>
+</body>
+</html>
